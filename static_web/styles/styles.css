@@ -1,0 +1,17 @@
+.neutral {
+    border: 2px dotted #33ccff!important
+}
+.semi-happy {
+    background-color: #b3e6b3!important;
+}
+.happy {
+    background-color: #339933!important;
+    color: white;
+}
+.semi-unhappy {
+    background-color: #ff9999!important;
+}
+.unhappy {
+    background-color: #e60000!important;
+    color: white;
+}
