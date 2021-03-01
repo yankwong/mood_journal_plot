@@ -34,10 +34,10 @@ def get_mood_dictionary(date_dictionary):
     mood_dictionary = dict()
 
     for date in date_dictionary:
-        print('------' + date)
-        print(TextBlob(date_dictionary[date]))
-        print(TextBlob(date_dictionary[date]).sentiment.polarity)
-        print('-----------')
+        # print('------' + date)
+        # print(TextBlob(date_dictionary[date]))
+        # print(TextBlob(date_dictionary[date]).sentiment.polarity)
+        # print('-----------')
         mood_dictionary[date] = TextBlob(date_dictionary[date]).sentiment.polarity
 
     return mood_dictionary
