@@ -1,5 +1,6 @@
 import re
 from textblob import TextBlob
+from time_service import TimeService
 
 
 def get_tweets(statuses):
@@ -20,13 +21,15 @@ def get_date_dictionary(tweets):
 
     for tweet in tweets:
         tweet_date = tweet["created_at"]
+        tweet_timestamp = TimeService().get_timestamp(tweet_date)
         tweet_content = remove_twitter_url(tweet["text"])
 
         if tweet_date in date_dictionary.keys():
-            date_dictionary[tweet_date] += ' ' + tweet_content
+            date_dictionary[tweet_timestamp] += ' ' + tweet_content
         else:
-            date_dictionary[tweet_date] = tweet_content
+            date_dictionary[tweet_timestamp] = tweet_content
 
+    print(date_dictionary)
     return date_dictionary
 
 
@@ -34,10 +37,11 @@ def get_mood_dictionary(date_dictionary):
     mood_dictionary = dict()
 
     for date in date_dictionary:
-        # print('------' + date)
-        # print(TextBlob(date_dictionary[date]))
-        # print(TextBlob(date_dictionary[date]).sentiment.polarity)
-        # print('-----------')
+        english_time = TimeService().get_string_from_timestamp(date)
+        print('------' + english_time)
+        print(TextBlob(date_dictionary[date]))
+        print(TextBlob(date_dictionary[date]).sentiment.polarity)
+        print('-----------')
         mood_dictionary[date] = TextBlob(date_dictionary[date]).sentiment.polarity
 
     return mood_dictionary
