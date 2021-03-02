@@ -4,7 +4,7 @@ from graphing_service import GraphingService
 
 
 total_pages = 40
-username = 'aoc'
+# username = 'aoc'
 
 
 def get_date_dictionary():
@@ -18,6 +18,8 @@ def get_mood_dictionary():
 
 
 if __name__ == '__main__':
+    username = input("Please input the twitter handle: @")
+    print('Analyzing... please wait...')
     mood_dictionary = get_mood_dictionary()
     GraphingService().plot_graph(mood_dictionary, username)
 
