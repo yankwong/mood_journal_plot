@@ -25,7 +25,7 @@ class GraphingService:
 
         plt.plot(x_values, y_values, 'c')
 
-        plt.title(f'Mood of @{username}')
+        plt.title(f'Sentiment of @{username} based on recent tweets')
         plt.xlabel('Days')
         plt.ylabel('Sentiment')
         # plt.legend()
